@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -36,26 +37,38 @@ fun People(personViewModel: PersonViewModel){
         }
       )
     },
+    bottomBar = {
+      BottomAppBar {
+        Row{
+          Button(onClick = { /*TODO*/ }) {
+            Text("Add Person")
+          }
+          Button(onClick = { /*TODO*/ }) {
+            Text("Delete Database")
+          }
+        }
+      }
+    }
   ){ innerPadding ->
     Column (
       modifier = Modifier
         .padding(innerPadding)
     ) {
-      Text("Hello, this is still under development")
-      Text("Hello, this is still under development")
+      Text("Hello, the database is shown below!")
       LazyColumn {
         items(listPeople.size) { index ->
           Row {
             Text(text = listPeople[index].name)
-          }
-          Button(onClick = { /*TODO*/ }) {
-            Text(text = "Remove Person")
+            Button(onClick = { /*TODO*/ }) {
+              Text(text = "Remove")
+            }
+            Button(onClick = { /*TODO*/ }) {
+              Text(text = "Edit")
+            }
           }
         }
       }
-      Button(onClick = { /*TODO*/ }) {
-        Text("Add Person")
-      }
+      
     }
   }
 }
