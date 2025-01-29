@@ -1,32 +1,28 @@
+package com.example.room_database_template.ui.util
 
-import androidx.compose.runtime.Composable
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import com.example.room_database_template.data.PersonRepository
-import com.example.room_database_template.ui.screens.Screens
-import com.example.room_database_template.ui.screens.person.People
-import com.example.room_database_template.ui.viewmodels.PersonViewModel
-
-@Composable
-fun DatabaseTemplate(
-  personRepository: PersonRepository
-){
-  val navController = rememberNavController()
-  val personViewModel = PersonViewModel(personRepository)
-  
-  /**
-   * TODO:
-   *  • Add Navigation Graph
-   */
-  
-  NavHost(navController = navController, startDestination = Screens.People.name){
-    composable(route = Screens.People.name){
-      People(personViewModel = personViewModel)
-    }
-    
-    composable(route = Screens.AddPeople.name){
-      //AddPerson(viewModel = personViewModel)
-    }
-  }
-}
+//@Serializable object Start
+//@Serializable object PersonAdd
+//
+//@Composable
+//fun DatabaseTemplate(
+//  personRepository: PersonRepository
+//){
+//  val navController = rememberNavController()
+//  val personViewModel = PersonViewModel(personRepository)
+//
+//  /**
+//   * TODO:
+//   *  • Add Navigation Graph
+//   */
+//
+//  NavHost(navController = navController, startDestination = Start){
+//    composable<Start> {
+//      People(navController = navController, viewModel = personViewModel)
+//    }
+//    navigation<PersonAdd>(startDestination = PersonAdd){
+//      composable<PersonAdd> {
+//        AddPerson(navController = navController, viewModel = personViewModel)
+//      }
+//    }
+//  }
+//}

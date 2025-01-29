@@ -1,5 +1,6 @@
 package com.example.room_database_template.ui.screens.person
 
+import PersonAdd
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,13 +18,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import com.example.room_database_template.ui.viewmodels.PersonViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun People(personViewModel: PersonViewModel){
-  val listPeople by personViewModel.allPeople.observeAsState(listOf())
+fun People(
+  navController: NavController,
+  viewModel: PersonViewModel
+){
+  val listPeople by viewModel.allPeople.observeAsState(listOf())
   
   Scaffold(
     topBar = {
@@ -40,10 +45,10 @@ fun People(personViewModel: PersonViewModel){
     bottomBar = {
       BottomAppBar {
         Row{
-          Button(onClick = { /*TODO*/ }) {
+          Button(onClick = { navController.navigate(route = PersonAdd)}) {
             Text("Add Person")
           }
-          Button(onClick = { /*TODO*/ }) {
+          Button(onClick = { }) {
             Text("Delete Database")
           }
         }
